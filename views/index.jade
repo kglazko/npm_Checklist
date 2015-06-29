@@ -1,0 +1,12 @@
+extends layout.jade
+
+block content
+  h1= title
+  if user
+    p Welcome, #{user}. Enjoy #{title}
+    hr
+    p Q.A. Sign Off 
+    button(class="btn", data-action="bea") Send Email
+    p Release Channels Approval
+  else
+    p Please sign in to #{title}
