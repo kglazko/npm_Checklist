@@ -16,6 +16,8 @@ const AUDIENCE = "http://localhost:" + PORT;
 
 var app = express();
 
+var rev="";
+
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -71,7 +73,11 @@ resp.redirect('/');
 //Complete Q.A. Signoff
 app.post('/qa_signoff', function(req,resp){
   var sign_off = "True";
-  db.insert({_id: req.session.ver, _rev: '1-302ee1450f5a436ee3ddd5ee94e9af38', qa_sign: true },function(err, body) {
+  db.get(req.session.ver, { revs_info: true }, function(err, body) {
+  if (!err)
+    rev = String(body._rev);
+    console.log(rev);
+  db.insert({_id: req.session.ver, _rev: body._rev, qa_sign: true },function(err, body) {
   if (!err) {
     console.log("Successfully modified");
     req.session.qa_signoff = sign_off;
@@ -81,6 +87,7 @@ app.post('/qa_signoff', function(req,resp){
   else {
     console.log(err);
   }
+});
 });
 });
 
