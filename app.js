@@ -19,7 +19,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser());
   app.use(express.session({ secret: 'your secret here' }));
-  app.use(express.csrf());
+  //app.use(express.csrf());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
@@ -37,6 +37,10 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.post('/auth', routes.auth(AUDIENCE));
+app.post('/version_declare', routes.version_declare, function(req, res){
+  var version = req.body.ff_version;
+  console.log("Post Received: %s %s", version);
+});
 app.get('/logout', routes.logout);
 
 var server = http.createServer(app);

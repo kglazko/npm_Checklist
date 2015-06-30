@@ -12,8 +12,8 @@
     "node": "~0.6.10"
   },
   "dependencies": {
-    "express": "3.2.x",
-    "jade": "0.31.x",
+    "express": "4.13.x",
+    "jade": "1.11.x",
     "browserid-verify": "0.1.x"
   },
   "devDependencies": {},

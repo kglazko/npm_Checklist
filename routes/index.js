@@ -6,7 +6,23 @@ var https = require('https'),
  */
 
 exports.index = function(req, resp){
-  resp.render('index', { title: 'Release Management Checklist', user: req.session.email, csrf: req.session._csrf })
+  resp.render('index', { title: 'Release Management Checklist', user: req.session.email, csrf: req.session._csrf, version: req.session.ver });
+  //if (version) {
+ // req.session.version = version;
+ // resp.render('index', {version: req.session.version});
+ // }
+};
+
+exports.version_declare = function(req, resp) {
+  if (req.body.ff_version) {
+    req.session.ver = req.body.ff_version;
+    console.log( "Setting version to: " + req.body.ff_version);
+    return resp.redirect('/');
+  }
+
+  else {
+    console.log("error error");
+  }
 };
 
 exports.auth = function (audience) {

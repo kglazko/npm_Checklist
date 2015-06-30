@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body> 
+    <nav>
+      <form id="login-form" action="/auth" method="POST">
+        <input id="assertion-field" type="hidden" name="assertion" value="">
+        <input type="hidden" name="_csrf">
+      </form><a id="browserid" href="javascript:navigator.id.request()">Sign in</a>
+    </nav>
+    <script>var loggedInUser = null;</script>
+    <script src="https://login.persona.org/include.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
