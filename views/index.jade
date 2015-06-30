@@ -8,7 +8,7 @@ block content
 		if version
 			p Version #{version}
 		else
-			form(name="version_num", action="/version_declare", method="post")
+			form(name="version_num", action="/version_create", method="post")
 				div.input
 					span.label Version
 					input(type="text", name="ff_version")
