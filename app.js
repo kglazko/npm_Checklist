@@ -43,10 +43,6 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.post('/auth', routes.auth(AUDIENCE));
-//app.post('/version_declare', routes.version_declare, function(req, res){
-  //var version = req.body.ff_version;
-  //console.log("Post Received: %s %s", version);
-//});
 
 //Post a new version to the Database
 app.post('/version_create' ,function(req, resp){
@@ -71,6 +67,24 @@ req.session.ver = req.body.ff_version;
 resp.redirect('/');
 }
 );
+
+//Complete Q.A. Signoff
+app.post('/qa_signoff', function(req,resp){
+  var sign_off = "True";
+  db.insert({_id: req.session.ver, _rev: '1-302ee1450f5a436ee3ddd5ee94e9af38', qa_sign: true },function(err, body) {
+  if (!err) {
+    console.log("Successfully modified");
+    req.session.qa_signoff = sign_off;
+    console.log(req.session.qa_signoff);
+    resp.redirect('/');
+  }
+  else {
+    console.log(err);
+  }
+});
+});
+
+//Logout Code
 app.get('/logout', routes.logout);
 
 var server = http.createServer(app);

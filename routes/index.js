@@ -6,7 +6,7 @@ var https = require('https'),
  */
 
 exports.index = function(req, resp){
-  resp.render('index', { title: 'Release Management Checklist', user: req.session.email, csrf: req.session._csrf, version: req.session.ver });
+  resp.render('index', { title: 'Release Management Checklist', user: req.session.email, csrf: req.session._csrf, version: req.session.ver, qa_sign : req.session.qa_signoff});
   //if (version) {
  // req.session.version = version;
  // resp.render('index', {version: req.session.version});
