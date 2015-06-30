@@ -2,7 +2,7 @@
 
 To run this Node.js app:
 
-    cd node-express
+    cd npm_Checklist
     npm install
     node app.js
 
