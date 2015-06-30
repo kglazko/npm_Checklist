@@ -10,10 +10,10 @@ block content
 		else
 			form(name="version_num", action="/version_create", method="post")
 				div.input
-					span.label Version
+					span.label Enter a Version #
 					input(type="text", name="ff_version")
 				div.actions
-					input(type="submit", value="Declare Version")
+					input(type="submit", value="Load Version")
 		p Q.A. Sign Off
 		form(name="qa_sign", action="/qa_signoff", method="post") 
 			input(type="submit", value="Sign Off", disabled=!version)
