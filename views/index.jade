@@ -8,15 +8,16 @@ block content
 		if version
 			p Version #{version}
 		else
-			form(name="version_num", action="/version_declare", method="post")
+			form(name="version_num", action="/version_create", method="post")
 				div.input
 					span.label Version
 					input(type="text", name="ff_version")
 				div.actions
 					input(type="submit", value="Declare Version")
-		p Q.A. Sign Off 
-		button(class="btn", id="qabttn", data-action="bea", disabled=!version) Sign Off
+		p Q.A. Sign Off
+		form(name="qa_sign", action="/qa_signoff", method="post") 
+			input(type="submit", value="Sign Off", disabled=!version)
 		p Release Channels Approval
-		button(class="btn", data-action="bea", disabled) Sign Off
+		button(class="btn", data-action="bea", disabled=!qa_sign) Sign Off
 	else
 		p Please sign in to #{title}
