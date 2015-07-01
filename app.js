@@ -59,7 +59,6 @@ if(err.message === 'no_db_file') {
            console.log("ARLOOO");
             });
           }
-console.log("Error creating version or version already exists");
 console.log (err.message);
 return;
 }

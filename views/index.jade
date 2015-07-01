@@ -1,5 +1,6 @@
 extends layout.jade
 
+
 block content
 	h1= title
 	if user
@@ -14,10 +15,18 @@ block content
 					input(type="text", name="ff_version")
 				div.actions
 					input(type="submit", value="Load Version")
-		p Q.A. Sign Off
+		
+		p(id="qa_label") Q.A. Sign Off
 		form(name="qa_sign", action="/qa_signoff", method="post") 
-			input(type="submit", value="Sign Off", disabled=!version)
+			input(type="submit", id="qa_so" value="Sign Off", disabled=!version)
 		p Release Channels Approval
 		button(class="btn", data-action="bea", disabled=!qa_sign) Sign Off
+		if qa_sign
+			script.
+				var label = document.getElementById("qa_label");
+				label.style.setProperty("text-decoration", "line-through");
+				var sign_off = document.getElementById("qa_so");
+				sign_off.value = "Revoke Sign Off";
+				console.log("Is this even working?");
 	else
 		p Please sign in to #{title}
