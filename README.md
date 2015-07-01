@@ -8,4 +8,4 @@ To run this Node.js app:
 
 Point your browser to [localhost:3000](http://localhost:3000).
 
-Currently does not have database integration, but log-ins and setting the version are working on a per-session basis.
+Fully integrated with CouchDB.
