@@ -1,21 +1,28 @@
 {
-  "author": "Austin King <shout@ozten.com> (http://ozten.com)",
-  "name": "browserid-cookbook-express",
-  "description": "Simplest Express app that uses BrowserID",
-  "version": "0.0.0",
-  "homepage": "http://github.com/mozilla/browserid-cookbook",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mozilla/browserid-cookbook.git"
-  },
-  "engines": {
-    "node": "~0.6.10"
+  "name": "npm-checklist",
+  "description": "Checklist for Release",
+  "version": "1.0.0",
+  "author": "yglazko",
+  "bugs": {
+    "url": "https://github.com/yglazko/npm_Checklist/issues"
   },
   "dependencies": {
-    "express": "4.13.x",
+    "browserid-verify": "0.1.x",
+    "express": "3.21.0",
     "jade": "1.11.x",
-    "browserid-verify": "0.1.x"
+    "nano": "6.1.4"
   },
   "devDependencies": {},
-  "optionalDependencies": {}
+  "homepage": "https://github.com/yglazko/npm_Checklist#readme",
+  "license": "MPL-2.0",
+  "main": "app.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yglazko/npm_Checklist.git"
+  },
+  "scripts": {
+    "start": "node app",
+    "test": "eslint ."
+  }
 }
